@@ -24,7 +24,6 @@ const IMAGE_STYLE: ImageStyle = {
 
 export default function Screen() {
 	const { colorScheme } = useColorScheme();
-
 	return (
 		<>
 			<Stack.Screen options={SCREEN_OPTIONS} />

@@ -14,7 +14,6 @@ export {
 
 export default function RootLayout() {
 	const { colorScheme } = useColorScheme();
-
 	return (
 		<ThemeProvider value={NAV_THEME[colorScheme ?? "light"]}>
 			<StatusBar style={colorScheme === "dark" ? "light" : "dark"} />
