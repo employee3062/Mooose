@@ -2,6 +2,7 @@ import { Link, Stack } from "expo-router";
 import { MoonStarIcon, StarIcon, SunIcon } from "lucide-react-native";
 import { useColorScheme } from "nativewind";
 import { Image, type ImageStyle, View } from "react-native";
+import { SystemCard } from "@/components/system-card";
 import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
@@ -40,6 +41,7 @@ export default function Screen() {
 					<Text className="ios:text-foreground font-mono text-sm text-muted-foreground">
 						2. Save to see your changes instantly.
 					</Text>
+					<SystemCard />
 				</View>
 				<View className="flex-row gap-2">
 					<Link href="https://reactnativereusables.com" asChild>
