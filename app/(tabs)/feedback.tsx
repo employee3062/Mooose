@@ -1,11 +1,10 @@
-import { Tabs } from "expo-router";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { View } from "react-native";
 import { Text } from "@/components/ui/text";
+
 export default function FeedbackTab() {
 	return (
-		<SafeAreaView style={{ flex: 1 }} edges={["left", "right"]}>
-			<Tabs.Screen options={{ headerTitle: "Feedback" }} />
+		<View>
 			<Text>Feedback</Text>
-		</SafeAreaView>
+		</View>
 	);
 }
