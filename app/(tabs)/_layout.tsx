@@ -79,8 +79,6 @@ export default function TabsLayout() {
 	const { colorScheme } = useColorScheme();
 	const segments = useSegments();
 
-	console.log("Current segments:", segments);
-
 	// Determine current active route segment (first segment after root)
 	const currentSegment = segments[1]; // e.g. "chatbot", "feedback"
 
