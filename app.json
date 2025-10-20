@@ -13,9 +13,7 @@
 			"resizeMode": "contain",
 			"backgroundColor": "#FFA500"
 		},
-		"assetBundlePatterns": [
-			"**/*"
-		],
+		"assetBundlePatterns": ["**/*"],
 		"ios": {
 			"supportsTablet": true,
 			"bundleIdentifier": "com.jazzsolar.moose"
@@ -28,9 +26,7 @@
 			},
 			"package": "com.jazzsolar.moose"
 		},
-		"plugins": [
-			"expo-router"
-		],
+		"plugins": ["expo-router"],
 		"experiments": {
 			"typedRoutes": true
 		}

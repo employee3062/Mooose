@@ -1,9 +1,11 @@
 import "@/global.css";
 
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { ThemeProvider } from "@react-navigation/native";
 import { PortalHost } from "@rn-primitives/portal";
 import { Stack } from "expo-router";
 import { useColorScheme } from "nativewind";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { NAV_THEME } from "@/lib/theme";
 
 export {
@@ -15,14 +17,22 @@ export default function RootLayout() {
 	const { colorScheme } = useColorScheme();
 	return (
 		<ThemeProvider value={NAV_THEME[colorScheme ?? "light"]}>
-			<Stack>
-				<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-				<Stack.Screen
-					name="modal"
-					options={{ presentation: "modal", headerShown: false }}
-				/>
-				<Stack.Screen name="+not-found" />
-			</Stack>
+			<GestureHandlerRootView style={{ flex: 1 }}>
+				<BottomSheetModalProvider>
+					<Stack>
+						<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+						<Stack.Screen
+							name="modal"
+							options={{
+								presentation: "containedTransparentModal",
+								headerShown: false,
+								animation: "slide_from_bottom",
+							}}
+						/>
+						<Stack.Screen name="+not-found" />
+					</Stack>
+				</BottomSheetModalProvider>
+			</GestureHandlerRootView>
 			<PortalHost />
 		</ThemeProvider>
 	);
