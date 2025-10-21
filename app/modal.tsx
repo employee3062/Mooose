@@ -13,22 +13,17 @@ import { Text } from "@/components/ui/text";
 export default function Modal() {
 	const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 	const router = useRouter();
-
 	// Set snap points for the modal
 	const snapPoints = useMemo(() => ["90%"], []);
-
 	// Use a ref to open the modal on mount
 	React.useEffect(() => {
 		bottomSheetModalRef.current?.present();
 	}, []);
-
 	// Handle modal closing
 	const handleDismiss = useCallback(() => {
 		router.back();
 	}, [router]);
-
 	const { colorScheme } = useColorScheme();
-	const backgroundColor = colorScheme === "dark" ? "#121212" : "#FFFFFF";
 	const [tab, setTab] = React.useState("red");
 	return (
 		<BottomSheetModal
@@ -36,7 +31,9 @@ export default function Modal() {
 			index={1}
 			snapPoints={snapPoints}
 			onDismiss={handleDismiss}
-			backgroundStyle={{ backgroundColor }}
+			backgroundStyle={{
+				backgroundColor: colorScheme === "dark" ? "#121212" : "#fbf3e9",
+			}}
 			handleIndicatorStyle={{
 				backgroundColor: colorScheme === "dark" ? "white" : "gray",
 			}}
@@ -50,7 +47,7 @@ export default function Modal() {
 						</AvatarFallback>
 					</Avatar>
 					<Text className="text-center font-bold text-green-500">Green</Text>
-					<Text className="text-center font-bold text-sm text-gray-300">
+					<Text className="text-center font-bold text-sm text-gray-400">
 						17 System Inverters
 					</Text>
 					<Text className="text-center font-bold text-xs text-gray-500">
