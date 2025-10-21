@@ -1,6 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
-import { router, Stack, Tabs, useLocalSearchParams } from "expo-router";
+import { router, Stack, Tabs } from "expo-router";
 import { type Edge, SafeAreaView } from "react-native-safe-area-context";
+import { Text } from "@/components/ui/text";
 
 const OVERVIEW_OPTIONS = {
 	headerShown: false,
@@ -39,12 +40,14 @@ const DETAILS_SCREEN_OPTIONS = {
 
 export default function TabsLayout() {
 	const edges: readonly Edge[] = ["left", "right"] as readonly Edge[];
-	const { id } = useLocalSearchParams();
+	//const { id } = useLocalSearchParams();
 	return (
 		<SafeAreaView style={{ flex: 1 }} edges={edges}>
 			<Stack.Screen
 				options={{
-					title: `User: ${id}`, // Dynamic title using URL parameter
+					headerTitle: () => (
+						<Text className="text-2xl mx-3">Jazz Miigwetch I</Text>
+					),
 					headerBackVisible: false,
 					headerLeft: ({ tintColor }) => (
 						<Ionicons

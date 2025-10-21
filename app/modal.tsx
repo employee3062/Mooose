@@ -31,7 +31,7 @@ export default function Modal() {
 			snapPoints={snapPoints}
 			onDismiss={handleDismiss}
 			backgroundStyle={{
-				backgroundColor: colorScheme === "dark" ? "#121212" : "#fbf3e9",
+				backgroundColor: colorScheme === "dark" ? "#121212" : "#f8f7f7",
 			}}
 			handleIndicatorStyle={{
 				backgroundColor: colorScheme === "dark" ? "white" : "gray",
