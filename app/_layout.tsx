@@ -16,8 +16,8 @@ export {
 export default function RootLayout() {
 	const { colorScheme } = useColorScheme();
 	return (
-		<ThemeProvider value={NAV_THEME[colorScheme ?? "light"]}>
-			<GestureHandlerRootView style={{ flex: 1 }}>
+		<GestureHandlerRootView style={{ flex: 1 }}>
+			<ThemeProvider value={NAV_THEME[colorScheme ?? "light"]}>
 				<BottomSheetModalProvider>
 					<Stack>
 						<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
@@ -32,8 +32,8 @@ export default function RootLayout() {
 						<Stack.Screen name="+not-found" />
 					</Stack>
 				</BottomSheetModalProvider>
-			</GestureHandlerRootView>
-			<PortalHost />
-		</ThemeProvider>
+				<PortalHost />
+			</ThemeProvider>
+		</GestureHandlerRootView>
 	);
 }

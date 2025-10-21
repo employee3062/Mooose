@@ -1,6 +1,12 @@
 import * as Slot from "@rn-primitives/slot";
 import { cva, type VariantProps } from "class-variance-authority";
-import { Platform, View, type ViewProps } from "react-native";
+import {
+	type GestureResponderEvent,
+	Platform,
+	Pressable,
+	View,
+	type ViewProps,
+} from "react-native";
 import { TextClassContext } from "@/components/ui/text";
 import { cn } from "@/lib/utils";
 
@@ -54,14 +60,17 @@ const badgeTextVariants = cva("text-xs font-medium", {
 type BadgeProps = ViewProps &
 	React.RefAttributes<View> & {
 		asChild?: boolean;
+		onPress?: (e?: GestureResponderEvent) => void;
 	} & VariantProps<typeof badgeVariants>;
 
-function Badge({ className, variant, asChild, ...props }: BadgeProps) {
-	const Component = asChild ? Slot.View : View;
+function Badge({ className, variant, asChild, onPress, ...props }: BadgeProps) {
+	// Use Pressable if onPress is provided, otherwise use the regular Component
+	const Component = onPress ? Pressable : asChild ? Slot.View : View;
 	return (
 		<TextClassContext.Provider value={badgeTextVariants({ variant })}>
 			<Component
 				className={cn(badgeVariants({ variant }), className)}
+				onPress={onPress} // <-- Pass the onPress prop to the inner component
 				{...props}
 			/>
 		</TextClassContext.Provider>

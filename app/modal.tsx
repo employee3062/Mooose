@@ -1,7 +1,7 @@
 // app/modal.tsx
 
 import { BottomSheetModal, BottomSheetView } from "@gorhom/bottom-sheet";
-import { useRouter } from "expo-router";
+import { router } from "expo-router";
 import { useColorScheme } from "nativewind";
 import React, { useCallback, useMemo, useRef } from "react";
 import { StyleSheet, View } from "react-native";
@@ -12,7 +12,6 @@ import { Text } from "@/components/ui/text";
 
 export default function Modal() {
 	const bottomSheetModalRef = useRef<BottomSheetModal>(null);
-	const router = useRouter();
 	// Set snap points for the modal
 	const snapPoints = useMemo(() => ["90%"], []);
 	// Use a ref to open the modal on mount
@@ -22,7 +21,7 @@ export default function Modal() {
 	// Handle modal closing
 	const handleDismiss = useCallback(() => {
 		router.back();
-	}, [router]);
+	}, []);
 	const { colorScheme } = useColorScheme();
 	const [tab, setTab] = React.useState("red");
 	return (
