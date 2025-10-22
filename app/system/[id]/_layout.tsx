@@ -53,7 +53,7 @@ export default function TabsLayout() {
 						<Ionicons
 							className="mx-1.5"
 							onPress={() => {
-								router.back();
+								router.navigate("/(tabs)");
 							}}
 							name="arrow-back"
 							size={24}

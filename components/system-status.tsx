@@ -1,5 +1,6 @@
 import { useRouter } from "expo-router";
 import { type GestureResponderEvent, Pressable, View } from "react-native";
+import { SingleInfo } from "./single-info";
 import { Badge } from "./ui/badge";
 import { Text } from "./ui/text";
 
@@ -24,12 +25,7 @@ export default function SystemStatus() {
 				</View>
 				<Text className="text-green-600">21 / 21</Text>
 			</Badge>
-			<View className="mt-2">
-				<Text className="text-xl font-semibold">
-					596.4 <Text className="text-sm">kWp</Text>
-				</Text>
-				<Text className="text-sm text-muted-foreground">Peak Power</Text>
-			</View>
+			<SingleInfo value={596.4} unit="kWp" label="Peak Power" />
 		</Pressable>
 	);
 }
