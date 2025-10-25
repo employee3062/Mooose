@@ -28,6 +28,7 @@ export function PowerBarChart() {
 				domain={{ y: [0, 6] }}
 				axisOptions={{
 					lineColor: "lightgray",
+					lineWidth: { grid: { x: 0, y: 1 }, frame: 1 },
 					labelColor: colorScheme === "dark" ? "white" : "black",
 					labelOffset: 10,
 					tickCount: 8, // Force 8 ticks for 8 bars
@@ -39,7 +40,7 @@ export function PowerBarChart() {
 				{({ points, chartBounds }) => (
 					<>
 						<Bar
-							opacity={0.7}
+							opacity={0.8}
 							points={points.power}
 							chartBounds={chartBounds}
 							color="#FFA500"
