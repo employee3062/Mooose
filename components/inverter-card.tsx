@@ -12,10 +12,10 @@ import { Text } from "./ui/text";
 
 export function InverterCard() {
 	return (
-		<Card className="w-[95%] h-56 rounded-xl">
+		<Card className="w-[95%] h-fit rounded-xl">
 			<CardHeader>
 				<View className="flex-row gap-2">
-					<CardTitle className="text-md">inv ID - 1234567890ABCDEF </CardTitle>
+					<CardTitle className="text-md">inv ID - 90ABCDEF12345678 </CardTitle>
 					<Text className="bg-green-300 w-3 h-3 rounded-full"></Text>
 				</View>
 				<CardDescription>MicroInverter 1234</CardDescription>

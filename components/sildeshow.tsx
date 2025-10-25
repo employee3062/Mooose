@@ -7,10 +7,10 @@ const SLIDE_WIDTH = width * 0.9; // Use 90% of width to match w-[90vw] in your s
 
 export default function Slideshow({ items }: { items: React.ReactNode[] }) {
 	return (
-		<View style={{ width: width, height: 240, alignItems: "center" }}>
+		<View className="w-full items-center">
 			<Carousel
 				width={SLIDE_WIDTH}
-				height={240}
+				height={210}
 				data={items}
 				renderItem={({ item }) => (
 					<View

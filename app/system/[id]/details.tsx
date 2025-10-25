@@ -11,10 +11,8 @@ export default function SystemDetailsTab() {
 	// In your component:
 	return (
 		<View className="flex-1 p-4 gap-2">
-			<View className="item	s-center">
-				<TimezoneClock />
-			</View>
-			<Card>
+			<TimezoneClock />
+			<Card className="border-0">
 				<CardHeader className="flex-row justify-between items-center">
 					<View>
 						<CardTitle className="text-sm font-bold">

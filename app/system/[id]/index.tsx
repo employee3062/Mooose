@@ -28,7 +28,7 @@ export default function SystemOverviewTab() {
 						borderRadius: 8,
 					}}
 				/>
-				<SystemStatus />
+				<SystemStatus currentPower={33.25} peakPower={50} totalInverters={6} />
 			</View>
 			<ScrollView className="w-full " showsVerticalScrollIndicator={false}>
 				<View className="w-full flex-1 mb-40 gap-3">

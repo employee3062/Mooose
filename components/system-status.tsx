@@ -4,7 +4,15 @@ import { SingleInfo } from "./single-info";
 import { Badge } from "./ui/badge";
 import { Text } from "./ui/text";
 
-export default function SystemStatus() {
+export default function SystemStatus({
+	totalInverters,
+	peakPower,
+	currentPower,
+}: {
+	totalInverters: number;
+	peakPower: number;
+	currentPower: number;
+}) {
 	const router = useRouter();
 	const onPress = (e?: GestureResponderEvent) => {
 		if (e) {
@@ -20,12 +28,19 @@ export default function SystemStatus() {
 				pointerEvents="box-none"
 			>
 				<View className="flex-row items-center gap-1 mr-1">
-					<Text className="pl-1">Producing</Text>
-					<View className="w-2 h-2 bg-green-400 rounded-full" />
+					<Text className="pl-1">
+						{currentPower === 0 ? "Sleeping" : "Producing"}
+					</Text>
+					<View
+						className={`w-2 h-2 ${currentPower === 0 ? "bg-blue-400" : "bg-green-400"} rounded-full`}
+					/>
 				</View>
-				<Text className="text-green-600">21 / 21</Text>
+				<Text className="text-green-600">
+					{" "}
+					{totalInverters} / {totalInverters}
+				</Text>
 			</Badge>
-			<SingleInfo value={596.4} unit="kWp" label="Peak Power" />
+			<SingleInfo value={peakPower} unit="kWp" label="Peak Power" />
 		</Pressable>
 	);
 }
